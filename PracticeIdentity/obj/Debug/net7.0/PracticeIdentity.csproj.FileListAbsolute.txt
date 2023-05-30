@@ -861,3 +861,4 @@ D:\Repo\Github\PracticeIdentity\PracticeIdentity\bin\Debug\net7.0\refs\System.Xm
 D:\Repo\Github\PracticeIdentity\PracticeIdentity\bin\Debug\net7.0\refs\WindowsBase.dll
 D:\Repo\Github\PracticeIdentity\PracticeIdentity\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 D:\Repo\Github\PracticeIdentity\PracticeIdentity\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
+D:\Repo\Github\PracticeIdentity\PracticeIdentity\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

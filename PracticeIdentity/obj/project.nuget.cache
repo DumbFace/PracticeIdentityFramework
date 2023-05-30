@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "sUX2BDqYBFpvaUIa102i9sqlLgbSfc5PyBeEjOKGpNgyHW+yQnBsGaCcWAk+aKuVQ7lTqL2i8vE07v2GW3DTkw==",
+  "dgSpecHash": "BVlGQ2iTLKqkQp1I4SeB1O469VEWud0rwI0YLju2WoYzzhYn+1UGbFPPy49m9MMQ1US2omEo0Okqjozn1Py4fQ==",
   "success": true,
   "projectFilePath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vinaai\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Vinaai\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Vinaai\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Vinaai\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
     "C:\\Users\\Vinaai\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.5\\microsoft.aspnetcore.cryptography.internal.7.0.5.nupkg.sha512",
     "C:\\Users\\Vinaai\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.5\\microsoft.aspnetcore.cryptography.keyderivation.7.0.5.nupkg.sha512",
     "C:\\Users\\Vinaai\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\7.0.3\\microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.3.nupkg.sha512",

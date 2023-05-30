@@ -14,16 +14,29 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-
+using PracticeIdentity.Services.TokenServices;
 namespace PracticeIdentity.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly ITokenService _tokenServices;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+        private readonly IConfiguration _config;
+
+        public LoginModel(
+            SignInManager<IdentityUser> signInManager,
+            ILogger<LoginModel> logger,
+            UserManager<IdentityUser> userManager,
+         ITokenService tokenService,
+        IConfiguration config
+         )
         {
+            _config = config;
+            _tokenServices = tokenService;
+            _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
         }
@@ -111,10 +124,28 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                // var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
+                var user = await _userManager.FindByNameAsync(Input.Email);
+
+                var result = await _signInManager.CheckPasswordSignInAsync(user, Input.Password, true);
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+
+                    string jwtToken = _tokenServices.BuildToken(_config["Jwt:Key"].ToString(), _config["Jwt:Issuer"].ToString(), user);
+
+                    Response.Cookies.Append("Authorization", $"Bearer {jwtToken}",
+                     new CookieOptions
+                     {
+                        Expires = DateTime.Now.AddMinutes(2),
+                         HttpOnly = true,
+                         Secure = true,
+                         SameSite = SameSiteMode.Lax
+                     });
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
