@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PracticeIdentity.Models;
@@ -21,14 +23,14 @@ public class HomeController : Controller
 
 
 
-    [Authorize(Roles = "Admin")]
+    [Authorize(AuthenticationSchemes = "Identity.Application," + JwtBearerDefaults.AuthenticationScheme)]
     public IActionResult GetListAdmin()
     {
 
         return Content("Admin");
     }
 
-    [Authorize(Roles = "Admin,User")]
+    [Authorize(AuthenticationSchemes = "Identity.Application," + JwtBearerDefaults.AuthenticationScheme)]
     public IActionResult GetListUser()
     {
         return Content("User");

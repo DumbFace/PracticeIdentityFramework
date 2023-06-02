@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj": {}
+    "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {}
   },
   "projects": {
-    "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj": {
+    "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj",
+        "projectUniqueName": "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
         "projectName": "PracticeIdentity",
-        "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj",
-        "packagesPath": "C:\\Users\\Vinaai\\.nuget\\packages\\",
-        "outputPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\obj\\",
+        "projectPath": "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+        "packagesPath": "C:\\Users\\Khang\\.nuget\\packages\\",
+        "outputPath": "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vinaai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
