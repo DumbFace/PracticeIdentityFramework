@@ -137,14 +137,13 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
 
                     string jwtToken = _tokenServices.BuildToken(_config["Jwt:Key"].ToString(), _config["Jwt:Issuer"].ToString(), user);
 
-                    Response.Cookies.Append("Authorization", $"Bearer {jwtToken}",
-                     new CookieOptions
-                     {
-                        Expires = DateTime.Now.AddMinutes(2),
-                         HttpOnly = true,
-                         Secure = true,
-                         SameSite = SameSiteMode.Lax
-                     });
+                    Response.Cookies.Append("UserLoginCookie", jwtToken,
+                        new CookieOptions
+                        {
+
+                            Expires = DateTime.Now.AddMinutes(20),
+                            HttpOnly = true,
+                        });
 
                     return LocalRedirect(returnUrl);
                 }

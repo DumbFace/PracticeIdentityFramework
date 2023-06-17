@@ -9,6 +9,6 @@ namespace PracticeIdentity.Services.TokenServices
     public interface ITokenService
     {
         string BuildToken(string key, string issuer, IdentityUser user);
-        bool ValidateToken(string key, string issuer, string audience, string token);
+        string ValidateToken(string token);
     }
 }

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {}
+    "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {}
   },
   "projects": {
-    "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
+    "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
         "projectName": "PracticeIdentity",
-        "projectPath": "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+        "projectPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
         "packagesPath": "C:\\Users\\Khang\\.nuget\\packages\\",
-        "outputPath": "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\obj\\",
+        "outputPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,6 +74,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.6, )"
+            },
+            "datatables.net": {
+              "target": "Package",
+              "version": "[1.13.4, )"
             }
           },
           "imports": [
@@ -98,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

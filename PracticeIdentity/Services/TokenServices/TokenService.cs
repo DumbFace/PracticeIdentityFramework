@@ -12,15 +12,20 @@ namespace PracticeIdentity.Services.TokenServices
 {
     public class TokenService : ITokenService
     {
-        private const double EXPIRY_DURATION_MINUTES = 2;
+        private const double EXPIRY_DURATION_MINUTES = 20;
+
+        private readonly IConfiguration _config;
+        public TokenService(IConfiguration config)
+        {
+            _config = config;
+        }
 
         public string BuildToken(string key, string issuer, IdentityUser user)
         {
             var claims = new[] {
-            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(JwtRegisteredClaimNames.Name, user.UserName),
             // new Claim(ClaimTypes.Role, user.Role),
-            new Claim(ClaimTypes.NameIdentifier,
-            Guid.NewGuid().ToString())
+            new Claim(ClaimTypes.NameIdentifier,Guid.NewGuid().ToString())
         };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
@@ -31,29 +36,37 @@ namespace PracticeIdentity.Services.TokenServices
             return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
         }
 
-        public bool ValidateToken(string key, string issuer, string audience, string token)
+        public string ValidateToken(string token)
         {
-            var mySecret = Encoding.UTF8.GetBytes(key);
-            var mySecurityKey = new SymmetricSecurityKey(mySecret);
+            if (token == null)
+                return null;
+
             var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_config["Jwt:Key"]);
             try
             {
-                tokenHandler.ValidateToken(token,
-                new TokenValidationParameters
+                tokenHandler.ValidateToken(token, new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidIssuer = issuer,
-                    ValidAudience = issuer,
-                    IssuerSigningKey = mySecurityKey,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = false,
+                    // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
+                    // ClockSkew = TimeSpan.Zero
                 }, out SecurityToken validatedToken);
+
+                var jwtToken = (JwtSecurityToken)validatedToken;
+                var userName = jwtToken.Claims.First(x => x.Type == JwtRegisteredClaimNames.Name).Value;
+
+                // return user id from JWT token if validation successful
+                return userName;
             }
             catch
             {
-                return false;
+                // return null if validation fails
+                return null;
             }
-            return true;
         }
     }
 }

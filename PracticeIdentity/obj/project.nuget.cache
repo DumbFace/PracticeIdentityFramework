@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "IAE4Qza2OBpKNHEIQpzPizSsJLklqbNkTArm9ga5LzvWrKFBo4SG24n4ReVCFaBDLUszCXKmBtp5ETne/OTXmw==",
+  "dgSpecHash": "GiXTf900k4AQDb5xQwPWWmE1iTIMxZf5rpmPtQb2ga66Ex/XQNaAkbr/sSg59ZXeF0u1jgLCBwd7RrouFplgIw==",
   "success": true,
-  "projectFilePath": "E:\\Workspace\\Repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+  "projectFilePath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Khang\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Khang\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Khang\\.nuget\\packages\\datatables.net\\1.13.4\\datatables.net.1.13.4.nupkg.sha512",
     "C:\\Users\\Khang\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Khang\\.nuget\\packages\\jquery\\1.7.0\\jquery.1.7.0.nupkg.sha512",
     "C:\\Users\\Khang\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
     "C:\\Users\\Khang\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.5\\microsoft.aspnetcore.cryptography.internal.7.0.5.nupkg.sha512",
     "C:\\Users\\Khang\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.5\\microsoft.aspnetcore.cryptography.keyderivation.7.0.5.nupkg.sha512",

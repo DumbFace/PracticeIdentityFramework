@@ -1,0 +1,78 @@
+@model List<IdentityUser>
+
+<h1>User </h1>
+
+<button class="btn btn-success my-3" onclick="Add(event)">Thêm</button>
+<style>
+    .navigation-icon {
+        cursor: pointer;
+    }
+</style>
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#" onclick="Edit(event)">Edit</a></li>
+                            <li><a class="dropdown-item" href="#">Delete</a></li>
+                            <li><a class="dropdown-item" href="#">Permission</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<partial name="_modal" />
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+            keyboard: false
+        })
+
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+
+        function Add(e) {
+            $.get("/User/GetModal", function (data) {
+                $("#loadModal").html(data);
+                $.validator.unobtrusive.parse("#exampleModal");
+            });
+
+
+            myModal.show();
+
+        }
+        function Edit(e) {
+
+            myModal.show();
+
+        }
+
+        function Delete(e) {
+            alert("Delete")
+        }
+    </script>
+}
