@@ -1,4 +1,69 @@
-
-
-
 <h1>Roles</h1>
+<button class="btn btn-success my-3" onclick="Add(event)">Thêm</button>
+<style>
+    .navigation-icon {
+        cursor: pointer;
+    }
+</style>
+<table id="example" class="table table-striped" style="width:100%">
+
+</table>
+
+
+<partial name="_modal" />
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+            keyboard: false
+        })
+
+        function LoadData() {
+            $.get("/Role/GetRoles", function (data) {
+                $("#example").html(data);
+                $('#example').DataTable();
+            });
+        }
+
+        $(document).ready(function () {
+            LoadData();
+        });
+
+        function Add(e) {
+            $.get("/Role/GetModal", function (data) {
+                $("#loadModal").html(data);
+                $.validator.unobtrusive.parse("#exampleModal");
+            });
+            myModal.show();
+
+        }
+        function Edit(e, name) {
+            $.get(`/Role/GetModal?name=${name}`, function (data) {
+                $("#loadModal").html(data);
+                $.validator.unobtrusive.parse("#exampleModal");
+            });
+            myModal.show();
+
+        }
+
+        function Delete(e, name) {
+            $.get(`/Role/Delete?name=${name}`, function (result) {
+                if (result == 'Ok') {
+                    LoadData();
+                }
+            });
+        }
+
+        function AddPermission(name) {
+        @* alert("Permission"); *@
+        debugger
+                $.get(`/Role/GetModalPermission?name=${name}`, function (data) {
+                    $("#loadModal").html(data);
+                    $.validator.unobtrusive.parse("#exampleModal");
+                    myModal.show();
+                });
+        }
+    </script>
+}

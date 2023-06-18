@@ -128,22 +128,11 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
 
                 var user = await _userManager.FindByNameAsync(Input.Email);
 
-                var result = await _signInManager.CheckPasswordSignInAsync(user, Input.Password, true);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-
-
-                    string jwtToken = _tokenServices.BuildToken(_config["Jwt:Key"].ToString(), _config["Jwt:Issuer"].ToString(), user);
-
-                    Response.Cookies.Append("UserLoginCookie", jwtToken,
-                        new CookieOptions
-                        {
-
-                            Expires = DateTime.Now.AddMinutes(20),
-                            HttpOnly = true,
-                        });
 
                     return LocalRedirect(returnUrl);
                 }

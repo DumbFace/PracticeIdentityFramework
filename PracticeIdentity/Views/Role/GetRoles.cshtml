@@ -1,0 +1,31 @@
+ @model IEnumerable<RoleDTO>
+ 
+ <thead>
+        <tr>
+            <th>Nhóm Quyền</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>
+
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#" onclick="Edit(event)">Edit</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="Delete(@user.Name)">Delete</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="AddPermission('@user.Name')">Permission</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>

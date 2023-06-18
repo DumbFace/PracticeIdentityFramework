@@ -76,11 +76,11 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
-            [Required(ErrorMessage = "Bạn vui lòng nhập FirstName")]
-            public string FirstName { get; set; }
+            // [Required(ErrorMessage = "Bạn vui lòng nhập FirstName")]
+            // public string FirstName { get; set; }
 
-            [Required(ErrorMessage = "Bạn vui lòng nhập LastName")]
-            public string LastName { get; set; }
+            // [Required(ErrorMessage = "Bạn vui lòng nhập LastName")]
+            // public string LastName { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -110,8 +110,8 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "Mật khẩu không khớp")]
             public string ConfirmPassword { get; set; }
 
-            [Required(ErrorMessage = "Bạn vui lòng chọn Role")]
-            public string Role { get; set; }
+            // [Required(ErrorMessage = "Bạn vui lòng chọn Role")]
+            // public string Role { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -139,14 +139,14 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     //Add Roles
-                    await _userManager.AddToRoleAsync(user, Input.Role);
+                    // await _userManager.AddToRoleAsync(user, Input.Role);
 
                     //Add Claims
                     List<Claim> claims = new List<Claim>();
                     claims.Add(new Claim(ClaimTypes.Email, Input.Email));
-                    claims.Add(new Claim(ClaimTypes.Role, Input.Role));
-                    claims.Add(new Claim(ClaimTypes.Surname, Input.FirstName));
-                    claims.Add(new Claim(ClaimTypes.GivenName, Input.LastName));
+                    // claims.Add(new Claim(ClaimTypes.Role, Input.Role));
+                    // claims.Add(new Claim(ClaimTypes.Surname, Input.FirstName));
+                    // claims.Add(new Claim(ClaimTypes.GivenName, Input.LastName));
 
                     await _userManager.AddClaimsAsync(user, claims);
                     var userId = await _userManager.GetUserIdAsync(user);

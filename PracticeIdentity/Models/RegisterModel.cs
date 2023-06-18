@@ -33,6 +33,7 @@ namespace PracticeIdentity.Models
         /// </summary>
         [DataType(DataType.Password)]
         [Display(Name = "Xác nhận mật khẩu")]
+        [Required(ErrorMessage = "Bạn vui lòng nhập lại mật khẩu")]
         [Compare("Password", ErrorMessage = "Mật khẩu không khớp")]
         public string ConfirmPassword { get; set; }
         // [Required(ErrorMessage = "Bạn vui lòng chọn Role")]
