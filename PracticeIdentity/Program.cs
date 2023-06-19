@@ -35,6 +35,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+// builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+builder.Services.AddSingleton<ITokenService, TokenService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -42,8 +45,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
 // builder.Services.AddScoped<IdentityDbContext, ApplicationDbContext>();
-builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
-builder.Services.AddSingleton<ITokenService, TokenService>();
+
 // builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 

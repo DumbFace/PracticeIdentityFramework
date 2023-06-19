@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -19,6 +20,7 @@ using PracticeIdentity.Models;
 
 namespace PracticeIdentity.Controllers
 {
+    // [Authorize]
     public class UserController : Controller
     {
         private readonly SignInManager<IdentityUser> _signInManager;

@@ -2616,3 +2616,5 @@ F:\Repo\PracticeIdentityFramework\PracticeIdentity\obj\Debug\net7.0\PracticeIden
 F:\Repo\PracticeIdentityFramework\PracticeIdentity\obj\Debug\net7.0\ref\PracticeIdentity.dll
 F:\Repo\PracticeIdentityFramework\PracticeIdentity\bin\Debug\net7.0\AutoMapper.dll
 F:\Repo\PracticeIdentityFramework\PracticeIdentity\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Repo\Github\PracticeIdentity\PracticeIdentity\bin\Debug\net7.0\AutoMapper.dll
+D:\Repo\Github\PracticeIdentity\PracticeIdentity\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

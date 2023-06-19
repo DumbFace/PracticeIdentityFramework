@@ -1,36 +1,48 @@
+@model List<string>
+
+@{
+    var lstPermission = (List<PermissionModel>)ViewBag.lstPermission;
+}
+
+
 <form action="role/UpdatePermission" method="post">
     <input type="hidden" name="Name" value="@ViewBag.role">
     <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    User
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                        <input type="checkbox" class="btn-check" id="btncheck1" name="Permissions"
-                            value="@Permissions.Products.View" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btncheck1">Xem</label>
+        @foreach (PermissionModel permission in lstPermission)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#@permission.GroupPermission" aria-expanded="true" aria-controls="collapseOne">
+                        @permission.GroupPermission
+                    </button>
+                </h2>
+                <div id="@permission.GroupPermission" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#@permission.GroupPermission">
+                    <div class="accordion-body">
+                        <input type="checkbox" class="" id="btncheck1" name="Permissions" value="@permission.View" 
+                        @( Model.Any(s=>s == @permission.View) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck1">Xem</label>
 
-                        <input type="checkbox" class="btn-check" id="btncheck2" name="Permissions"
-                            value="@Permissions.Products.Create" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btncheck2">Thêm</label>
+                        <input type="checkbox" class="" id="btncheck2" name="Permissions" value="@permission.Create"
+                          @( Model.Any(s=>s == @permission.Create) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck2">Thêm</label>
 
-                        <input type="checkbox" class="btn-check" id="btncheck3" name="Permissions"
-                            value="@Permissions.Products.Edit" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btncheck3">Sửa</label>
+                        <input type="checkbox" class="" id="btncheck3" name="Permissions" value="@permission.Edit"
+                          @( Model.Any(s=>s == @permission.Edit) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck3">Sửa</label>
 
-                        <input type="checkbox" class="btn-check" id="btncheck4" name="Permissions"
-                            value="@Permissions.Products.Delete" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btncheck4">Xóa</label>
+                        <input type="checkbox" class="" id="btncheck4" name="Permissions" value="@permission.Delete"
+                          @( Model.Any(s=>s == @permission.Delete) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck4">Xóa</label>
                     </div>
                 </div>
             </div>
-        </div>
+        }
 
     </div>
     <input type="submit" class="btn btn-success" value="Submit">

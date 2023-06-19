@@ -5,24 +5,36 @@ using System.Threading.Tasks;
 
 namespace PracticeIdentity.Permissions
 {
-    public static class Permissions
+    public static class PermissionsAuthorize
     {
-        public static List<string> GeneratePermissionsForModule(string module)
+        public static class Product
         {
-            return new List<string>()
-        {
-            $"Permissions.{module}.Create",
-            $"Permissions.{module}.View",
-            $"Permissions.{module}.Edit",
-            $"Permissions.{module}.Delete",
-        };
+
+            public const string GroupPermission = "Product";
+            public const string View = "Permissions.Product.View";
+            public const string Create = "Permissions.Product.Create";
+            public const string Edit = "Permissions.Product.Edit";
+            public const string Delete = "Permissions.Product.Delete";
         }
-        public static class Products
+
+        public static class Role
         {
-            public const string View = "Permissions.Products.View";
-            public const string Create = "Permissions.Products.Create";
-            public const string Edit = "Permissions.Products.Edit";
-            public const string Delete = "Permissions.Products.Delete";
+            public const string GroupPermission = "Role";
+            public const string View = "Permissions.Role.View";
+            public const string Create = "Permissions.Role.Create";
+            public const string Edit = "Permissions.Role.Edit";
+            public const string Delete = "Permissions.Role.Delete";
         }
+
+        public static class User
+        {
+            public const string GroupPermission = "User";
+            public const string View = "Permissions.User.View";
+            public const string Create = "Permissions.User.Create";
+            public const string Edit = "Permissions.User.Edit";
+            public const string Delete = "Permissions.User.Delete";
+        }
+
+        
     }
 }

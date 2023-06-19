@@ -57,8 +57,6 @@
         }
 
         function AddPermission(name) {
-        @* alert("Permission"); *@
-        debugger
                 $.get(`/Role/GetModalPermission?name=${name}`, function (data) {
                     $("#loadModal").html(data);
                     $.validator.unobtrusive.parse("#exampleModal");

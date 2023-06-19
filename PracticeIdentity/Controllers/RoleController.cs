@@ -8,7 +8,9 @@ using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PracticeIdentity.Data;
 using PracticeIdentity.DTOS;
+using PracticeIdentity.Utils;
 
 namespace PracticeIdentity.Controllers
 {
@@ -20,15 +22,18 @@ namespace PracticeIdentity.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserStore<IdentityUser> _userStore;
         private readonly IUserEmailStore<IdentityUser> _emailStore;
+        private readonly ApplicationDbContext _context;
 
         public RoleController(
             RoleManager<IdentityRole> roleManager,
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
-            IMapper mapper
+            IMapper mapper,
+            ApplicationDbContext context
             )
         {
+            _context = context;
             _mapper = mapper;
             _userManager = userManager;
             _userStore = userStore;
@@ -82,7 +87,7 @@ namespace PracticeIdentity.Controllers
         {
             return View();
         }
-        
+
         [HttpDelete]
         public async Task<IActionResult> Delete(string name)
         {
@@ -96,7 +101,19 @@ namespace PracticeIdentity.Controllers
         public async Task<IActionResult> GetModalPermission(string name)
         {
             ViewBag.role = name;
-            return PartialView("ModalPermission");
+
+            IdentityRole role = await _roleManager.FindByNameAsync(name);
+
+            var roleClaims = await _roleManager.GetClaimsAsync(role);
+            List<string> claimsAsString = new List<string>();
+
+            foreach (Claim claim in roleClaims)
+            {
+                claimsAsString.Add(claim.Value);
+            }
+
+            ViewBag.lstPermission = Util.GeneratePermissions();
+            return PartialView("ModalPermission", claimsAsString);
         }
 
 
@@ -105,13 +122,25 @@ namespace PracticeIdentity.Controllers
         {
             var role = await _roleManager.FindByNameAsync(name);
             var allClaims = await _roleManager.GetClaimsAsync(role);
+
+            //Remove all claims first
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                foreach (var claim in allClaims)
+                {
+                    var testResult = await _roleManager.RemoveClaimAsync(role, claim);
+                }
+                transaction.Commit();
+            }
+
             var allPermissions = permissions;
             foreach (var permission in allPermissions)
             {
-                if (!allClaims.Any(a => a.Type == "Permission" && a.Value == permission))
-                {
-                   var result = await _roleManager.AddClaimAsync(role, new Claim("Permission", permission));
-                }
+                // if (!allClaims.Any(a => a.Type == "Permission" && a.Value == permission))https://localhost:7020/Role#
+                // {
+                //     var result = await _roleManager.AddClaimAsync(role, new Claim("Permission", permission));
+                // }
+                var result = await _roleManager.AddClaimAsync(role, new Claim("Permission", permission));
             }
 
             return RedirectToAction("Index");
