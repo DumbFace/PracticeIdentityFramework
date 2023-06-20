@@ -4,4 +4,6 @@
 @using Microsoft.AspNetCore.Identity
 @using PracticeIdentity.Permissions
 @using PracticeIdentity.AuthorizeHandlers
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

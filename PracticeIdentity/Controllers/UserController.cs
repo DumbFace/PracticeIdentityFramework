@@ -20,7 +20,7 @@ using PracticeIdentity.Models;
 
 namespace PracticeIdentity.Controllers
 {
-    // [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -175,8 +175,6 @@ namespace PracticeIdentity.Controllers
                     }
                     transaction.Commit();
                 }
-
-                // user = _mapper.Map<IdentityUser>(userDTO);
             }
             return RedirectToAction("Index");
         }

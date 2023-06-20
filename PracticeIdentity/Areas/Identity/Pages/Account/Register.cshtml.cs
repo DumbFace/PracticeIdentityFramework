@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -26,21 +25,17 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserStore<IdentityUser> _userStore;
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-        // private readonly ClaminMan
 
         public RegisterModel(
-            RoleManager<IdentityRole> roleManager,
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender
-            )
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,7 +43,6 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
-            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -76,18 +70,12 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
-            // [Required(ErrorMessage = "Bạn vui lòng nhập FirstName")]
-            // public string FirstName { get; set; }
-
-            // [Required(ErrorMessage = "Bạn vui lòng nhập LastName")]
-            // public string LastName { get; set; }
-
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required(ErrorMessage = "Bạn vui lòng nhập email")]
-            [EmailAddress(ErrorMessage = "Bạn vui lòng nhập đúng định dạng")]
+            [Required]
+            [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -95,10 +83,10 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required(ErrorMessage = "Bạn vui lòng nhập mật khẩu ")]
-            [StringLength(100, ErrorMessage = "{0} phải từ {1} đến {2} ký tự", MinimumLength = 6)]
+            [Required]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Mật khẩu")]
+            [Display(Name = "Password")]
             public string Password { get; set; }
 
             /// <summary>
@@ -106,17 +94,14 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Xác nhận mật khẩu")]
-            [Compare("Password", ErrorMessage = "Mật khẩu không khớp")]
+            [Display(Name = "Confirm password")]
+            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-
-            // [Required(ErrorMessage = "Bạn vui lòng chọn Role")]
-            // public string Role { get; set; }
         }
+
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            ViewData["lstRoles"] = _roleManager.Roles.ToList();
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -131,24 +116,12 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    //Add Roles
-                    // await _userManager.AddToRoleAsync(user, Input.Role);
-
-                    //Add Claims
-                    List<Claim> claims = new List<Claim>();
-                    claims.Add(new Claim(ClaimTypes.Email, Input.Email));
-                    // claims.Add(new Claim(ClaimTypes.Role, Input.Role));
-                    // claims.Add(new Claim(ClaimTypes.Surname, Input.FirstName));
-                    // claims.Add(new Claim(ClaimTypes.GivenName, Input.LastName));
-
-                    await _userManager.AddClaimsAsync(user, claims);
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -177,6 +150,7 @@ namespace PracticeIdentity.Areas.Identity.Pages.Account
                 }
             }
 
+            // If we got this far, something failed, redisplay form
             return Page();
         }
 
