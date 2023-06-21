@@ -21,6 +21,30 @@ namespace PracticeIdentity.Utils
             }
         }
 
+        public static List<string> GeneratePermissionsAsString()
+        {
+            List<string> permissions = new List<string>();
+            var parentType = typeof(PermissionsAuthorize);
+
+            // Get all nested types (classes)
+            foreach (var type in parentType.GetNestedTypes(BindingFlags.Public | BindingFlags.Static))
+            {
+                // Get all public constant fields in the nested class
+                foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy))
+                {
+                    if (field.IsLiteral && !field.IsInitOnly)
+                    {
+
+                        if (field.Name != "GroupPermission")
+                        {
+                            permissions.Add(field.GetValue(null).ToString());
+                        }
+                    }
+                }
+            }
+            return permissions;
+        }
+
         public static List<PermissionModel> GeneratePermissions()
         {
             List<PermissionModel> permissions = new List<PermissionModel>();
