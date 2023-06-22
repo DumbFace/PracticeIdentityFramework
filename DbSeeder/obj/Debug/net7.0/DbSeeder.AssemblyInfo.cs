@@ -10,6 +10,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("dotnet-DbSeeder-011f2a0b-4861-47d9-b13b-fb5f57caf63e")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DbSeeder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

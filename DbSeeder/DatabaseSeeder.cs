@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using DbSeeder.Constaints;
-using PracticeIdentity.Utils;
 using Serilog;
 using System.Security.Claims;
+using Domain.Utils.PermissionUtil;
 
 namespace DbSeeder
 {
@@ -26,12 +26,12 @@ namespace DbSeeder
 
         public bool CheckRole()
         {
-            return roleManager.Roles.All(s => s.Name == Constaint.Role.SuperAdmin.ToString());
+            return roleManager.Roles.Any(s => s.Name == Constaint.Role.SuperAdmin.ToString());
         }
 
         public bool CheckUser()
         {
-            return userManager.Users.All(s => s.UserName == DefaultUser);
+            return userManager.Users.Any(s => s.UserName == DefaultUser);
         }
 
         public async Task SeedPermissionsRole()
@@ -45,7 +45,7 @@ namespace DbSeeder
                 if (!result)
                 {
                     var superAdmin = roleManager.Roles.FirstOrDefault(s => s.Name == Constaint.Role.SuperAdmin.ToString());
-                    var permissions = Util.GeneratePermissionsAsString();
+                    var permissions = PermissionUtil.GeneratePermissionsAsString();
 
                     foreach (string permission in permissions)
                     {
@@ -106,7 +106,7 @@ namespace DbSeeder
                     Email = Constaint.DefaultUser,
                     EmailConfirmed = true
                 };
-                var result = await userManager.CreateAsync(user, "12345678");
+                var result = await userManager.CreateAsync(user, "Khang12vn1998@");
                 if (result.Succeeded)
                 {
                     Log.Information("Seeding Account");

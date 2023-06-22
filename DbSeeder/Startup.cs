@@ -8,34 +8,35 @@ using Serilog;
 
 namespace DbSeeder
 {
-    public class Startup
+    public class Startup : IHostedService
     {
-        public IConfiguration Configuration { get; }
-        public Startup(IConfiguration _config)
+        readonly private IDatabaseSeeder _dbSeeder;
+        readonly private IHostApplicationLifetime _hostApp;
+        readonly private IConfiguration _config;
+        readonly private IServiceCollection _service;
+        public Startup(
+            IHostApplicationLifetime appLifetime,
+            IDatabaseSeeder dbSeeder
+            )
         {
-            var exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            var exeDirectory = System.IO.Path.GetDirectoryName(exePath);
-
-            var builder = new ConfigurationBuilder()
-                                     .SetBasePath(exeDirectory)
-                                      .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-
-            Configuration = builder.Build();
+            _dbSeeder = dbSeeder;
+            _hostApp = appLifetime;
 
         }
 
-        public void ConfigureServices(IServiceCollection services)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
-            var connectionString = Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            Log.Information("--> Seeding DB");
+            await _dbSeeder.SeedUserAsync();
+            await _dbSeeder.SeedRole();
+            await _dbSeeder.SeedPermissionsRole();
+            _hostApp.StopApplication();
+        }
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddTransient<IDatabaseSeeder, DatabaseSeeder>();
-
-            services.AddDefaultIdentity<IdentityUser>()
-                    .AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<ApplicationDbContext>();
-
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            Log.Information("--> Stop Seeding DB");
+            return Task.CompletedTask;
         }
     }
 }

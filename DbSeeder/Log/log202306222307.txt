@@ -1,0 +1,6 @@
+2023-06-22 23:07:11.765 +07:00 [INF] --> Seeding DB
+2023-06-22 23:07:12.881 +07:00 [INF] Seeding Account
+2023-06-22 23:07:13.041 +07:00 [INF] All Claims Removed
+2023-06-22 23:07:13.043 +07:00 [INF] --> Stop Seeding DB
+2023-06-22 23:07:38.100 +07:00 [INF] --> Seeding DB
+2023-06-22 23:07:39.313 +07:00 [INF] --> Stop Seeding DB

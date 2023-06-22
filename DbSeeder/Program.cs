@@ -1,4 +1,6 @@
 using DbSeeder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
 
@@ -6,34 +8,38 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        var host = CreateHostBuilder(args).Build();
+        var exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        var exeDirectory = System.IO.Path.GetDirectoryName(exePath);
+        var builderAppSetting = new ConfigurationBuilder()
+                                 .SetBasePath(exeDirectory)
+                                  .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+        IConfiguration config = builderAppSetting.Build();
+        var connectionString = config.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
         Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Information()
-            .Enrich.FromLogContext()
-            .WriteTo.File("Log/log.txt", rollingInterval: RollingInterval.Minute)
-            .CreateLogger();
+                .MinimumLevel.Information()
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .WriteTo.File("Log/log.txt", rollingInterval: RollingInterval.Minute)
+                .CreateLogger();
 
-        using (var scope = host.Services.CreateScope())
-        {
-            var services = scope.ServiceProvider;
-
-            var dbSeederService = services.GetService<IDatabaseSeeder>();
-
-            Log.Information("-->DB Start Seeding");
-            await dbSeederService.SeedUserAsync();
-            await dbSeederService.SeedRole();
-            await dbSeederService.SeedPermissionsRole();
-            Log.Information("-->DB Stop Seeding");
-        }
-    }
-
-    static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
+        var builder = new HostBuilder()
             .ConfigureServices((hostContext, services) =>
             {
-                var startup = new Startup(hostContext.Configuration);
-                startup.ConfigureServices(services);
-            });
+                services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionString)
+                .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddFilter("", LogLevel.None)))
+                .EnableSensitiveDataLogging(false)
+                );
+                services.AddTransient<IDatabaseSeeder, DatabaseSeeder>();
+                services.AddDefaultIdentity<IdentityUser>()
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
 
+                services.AddHostedService<Startup>();
+            })
+            .UseSerilog();
+
+        builder.RunConsoleAsync().GetAwaiter().GetResult();
+    }
 }

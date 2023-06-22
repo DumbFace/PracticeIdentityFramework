@@ -12001,19 +12001,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vinaai\\.nuget\\packages\\": {}
+    "C:\\Users\\khang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj",
+      "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
       "projectName": "PracticeIdentity",
-      "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj",
-      "packagesPath": "C:\\Users\\Vinaai\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\obj\\",
+      "projectPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+      "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
+      "outputPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Vinaai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12021,6 +12021,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12105,7 +12106,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

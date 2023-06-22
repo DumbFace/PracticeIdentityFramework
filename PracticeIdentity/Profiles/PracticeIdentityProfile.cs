@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Domain.Roles;
 using Microsoft.AspNetCore.Identity;
 using PracticeIdentity.DTOS;
 
@@ -18,6 +19,8 @@ namespace PracticeIdentity.Profiles
             CreateMap<IdentityUser, UserDTO>();
             CreateMap<UserDTO, IdentityUser>();
 
+
+            CreateMap<IdentityUser,RoleModel>();
         }
     }
 }

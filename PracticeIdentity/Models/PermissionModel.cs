@@ -12,6 +12,5 @@ namespace PracticeIdentity.Models
         public string Create { get; set; }
         public string Edit { get; set; }
         public string Delete { get; set; }
-
     }
 }

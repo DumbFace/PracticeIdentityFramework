@@ -34,7 +34,5 @@ namespace PracticeIdentity.Permissions
             public const string Edit = "Permissions.User.Edit";
             public const string Delete = "Permissions.User.Delete";
         }
-
-        
     }
 }

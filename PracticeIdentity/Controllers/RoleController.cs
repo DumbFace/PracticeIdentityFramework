@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using Domain.Roles;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -51,7 +52,7 @@ namespace PracticeIdentity.Controllers
         [HttpGet]
         public IActionResult GetRoles()
         {
-            return PartialView((_mapper.Map<IEnumerable<RoleDTO>>(_roleManager.Roles.ToList())));
+            return PartialView((_mapper.Map<IEnumerable<RoleModel>>(_roleManager.Roles.ToList())));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -65,12 +66,12 @@ namespace PracticeIdentity.Controllers
         public async Task<IActionResult> GetModal(string name = "")
         {
             var role = await _roleManager.FindByNameAsync(name);
-            return PartialView("ShowModal", (_mapper.Map<RoleDTO>(role)));
+            return PartialView("ShowModal", (_mapper.Map<RoleModel>(role)));
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(RoleDTO obj)
+        public async Task<IActionResult> Create(RoleModel obj)
         {
             if (ModelState.IsValid)
             {
