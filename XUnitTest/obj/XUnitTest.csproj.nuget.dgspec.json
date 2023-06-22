@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Repo\\PracticeIdentityFramework\\XUnitTest\\XUnitTest.csproj": {}
+    "D:\\Repo\\Github\\PracticeIdentity\\XUnitTest\\XUnitTest.csproj": {}
   },
   "projects": {
-    "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj": {
+    "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\DbSeeder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
+        "projectUniqueName": "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\DbSeeder.csproj",
         "projectName": "DbSeeder",
-        "projectPath": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
-        "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-        "outputPath": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\obj\\",
+        "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\DbSeeder.csproj",
+        "packagesPath": "C:\\Users\\Vinaai\\.nuget\\packages\\",
+        "outputPath": "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vinaai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
-                "projectPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj"
+              "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj": {
+                "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj"
               }
             }
           }
@@ -51,6 +51,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
@@ -97,21 +101,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
+    "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+        "projectUniqueName": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj",
         "projectName": "PracticeIdentity",
-        "projectPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
-        "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-        "outputPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\obj\\",
+        "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj",
+        "packagesPath": "C:\\Users\\Vinaai\\.nuget\\packages\\",
+        "outputPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vinaai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -119,7 +123,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -204,21 +207,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Repo\\PracticeIdentityFramework\\XUnitTest\\XUnitTest.csproj": {
+    "D:\\Repo\\Github\\PracticeIdentity\\XUnitTest\\XUnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\XUnitTest\\XUnitTest.csproj",
+        "projectUniqueName": "D:\\Repo\\Github\\PracticeIdentity\\XUnitTest\\XUnitTest.csproj",
         "projectName": "XUnitTest",
-        "projectPath": "F:\\Repo\\PracticeIdentityFramework\\XUnitTest\\XUnitTest.csproj",
-        "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-        "outputPath": "F:\\Repo\\PracticeIdentityFramework\\XUnitTest\\obj\\",
+        "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\XUnitTest\\XUnitTest.csproj",
+        "packagesPath": "C:\\Users\\Vinaai\\.nuget\\packages\\",
+        "outputPath": "D:\\Repo\\Github\\PracticeIdentity\\XUnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vinaai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -232,11 +235,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj": {
-                "projectPath": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj"
+              "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\DbSeeder.csproj": {
+                "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\DbSeeder.csproj"
               },
-              "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
-                "projectPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj"
+              "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj": {
+                "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj"
               }
             }
           }
@@ -292,7 +295,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -19,8 +19,8 @@ namespace DbSeeder
 
         public DatabaseSeeder(RoleManager<IdentityRole> _roleManager, UserManager<IdentityUser> _userManager)
         {
-            _roleManager = roleManager;
-            _userManager = userManager;
+            roleManager = _roleManager;
+            userManager = _userManager;
         }
 
 
@@ -37,17 +37,20 @@ namespace DbSeeder
         public async Task SeedPermissionsRole()
         {
             var role = roleManager.Roles.Where(s => s.Name == Constaint.Role.SuperAdmin.ToString()).FirstOrDefault();
-            var claimsRole = await roleManager.GetClaimsAsync(role);
-
-            bool result = await ClearPermisionRole(claimsRole, role);
-            if (result)
+            if (role != null)
             {
-                var superAdmin = roleManager.Roles.FirstOrDefault(s => s.Name == Constaint.Role.Admin.ToString());
-                var permissions = Util.GeneratePermissionsAsString();
+                var claimsRole = await roleManager.GetClaimsAsync(role);
 
-                foreach (string permission in permissions)
+                bool result = await ClearPermisionRole(claimsRole, role);
+                if (!result)
                 {
-                    await roleManager.AddClaimAsync(superAdmin, new Claim("Permission", permission));
+                    var superAdmin = roleManager.Roles.FirstOrDefault(s => s.Name == Constaint.Role.SuperAdmin.ToString());
+                    var permissions = Util.GeneratePermissionsAsString();
+
+                    foreach (string permission in permissions)
+                    {
+                        await roleManager.AddClaimAsync(superAdmin, new Claim("Permission", permission));
+                    }
                 }
             }
         }
@@ -79,16 +82,23 @@ namespace DbSeeder
 
         public async Task SeedRole()
         {
-            if (CheckRole())
+            if (!CheckRole())
             {
-                await roleManager.CreateAsync(new IdentityRole(Constaint.Role.Admin.ToString()));
-                Log.Information("Seeding Role");
+                var result = await roleManager.CreateAsync(new IdentityRole(Constaint.Role.SuperAdmin.ToString()));
+                if (result.Succeeded)
+                {
+                    Log.Information("Seeding Role");
+                }
+                else
+                {
+                    Log.Information($"Error Seeding Role: {result.Errors}");
+                }
             }
         }
 
         public async Task SeedUserAsync()
         {
-            if (CheckUser())
+            if (!CheckUser())
             {
                 IdentityUser user = new IdentityUser
                 {
@@ -96,8 +106,15 @@ namespace DbSeeder
                     Email = Constaint.DefaultUser,
                     EmailConfirmed = true
                 };
-                await userManager.CreateAsync(user, "12345678");
-                Log.Information("Seeding Account");
+                var result = await userManager.CreateAsync(user, "12345678");
+                if (result.Succeeded)
+                {
+                    Log.Information("Seeding Account");
+                }
+                else
+                {
+                    Log.Information($"Error Seeding Account: {result.Errors}");
+                }
             }
         }
     }

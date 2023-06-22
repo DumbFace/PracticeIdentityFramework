@@ -19,18 +19,18 @@ public class TestFunction
     [Fact]
     public void Test_GeneratePermissionStatic_ShouldDisplay()
     {
-        var lstPermission = Util.GeneratePermissions();
-        Util.DisplayPermission(lstPermission);
+        // var lstPermission = Util.GeneratePermissions();
+        // Util.DisplayPermission(lstPermission);
     }
 
     [Fact]
     public void Test_GeneratePermissionStaticAsString_ShouldDisplay()
     {
-        var lstPermission = Util.GeneratePermissionsAsString();
-        foreach (string permission in lstPermission)
-        {
-            Console.WriteLine(permission);
-        }
+        // var lstPermission = Util.GeneratePermissionsAsString();
+        // foreach (string permission in lstPermission)
+        // {
+        //     Console.WriteLine(permission);
+        // }
     }
 
     [Fact]

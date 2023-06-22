@@ -1272,3 +1272,14 @@ f:\Repo\PracticeIdentityFramework\XUnitTest\bin\Debug\net7.0\DbSeeder.pdb
 F:\Repo\PracticeIdentityFramework\XUnitTest\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
 F:\Repo\PracticeIdentityFramework\XUnitTest\bin\Debug\net7.0\Microsoft.Extensions.Hosting.dll
 F:\Repo\PracticeIdentityFramework\XUnitTest\bin\Debug\net7.0\Serilog.Sinks.Console.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\DbSeeder.deps.json
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\DbSeeder.runtimeconfig.json
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\DbSeeder.exe
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\Microsoft.Extensions.Hosting.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\Serilog.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\Serilog.Sinks.Async.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\Serilog.Sinks.Console.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\Serilog.Sinks.File.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\DbSeeder.dll
+D:\Repo\Github\PracticeIdentity\XUnitTest\bin\Debug\net7.0\DbSeeder.pdb

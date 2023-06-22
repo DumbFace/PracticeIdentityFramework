@@ -12954,6 +12954,7 @@
     "net7.0": [
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.7",
+      "Microsoft.Extensions.Configuration.Json >= 7.0.0",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
       "Microsoft.Extensions.Hosting >= 7.0.1",
       "Microsoft.Extensions.Logging >= 7.0.0",
@@ -12965,19 +12966,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\khang\\.nuget\\packages\\": {}
+    "C:\\Users\\Vinaai\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
+      "projectUniqueName": "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\DbSeeder.csproj",
       "projectName": "DbSeeder",
-      "projectPath": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
-      "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-      "outputPath": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\obj\\",
+      "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\DbSeeder.csproj",
+      "packagesPath": "C:\\Users\\Vinaai\\.nuget\\packages\\",
+      "outputPath": "D:\\Repo\\Github\\PracticeIdentity\\DbSeeder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vinaai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12991,8 +12992,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
-              "projectPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj"
+            "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj": {
+              "projectPath": "D:\\Repo\\Github\\PracticeIdentity\\PracticeIdentity\\PracticeIdentity.csproj"
             }
           }
         }
@@ -13014,6 +13015,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[7.0.7, )"
+          },
+          "Microsoft.Extensions.Configuration.Json": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           },
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
@@ -13060,7 +13065,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

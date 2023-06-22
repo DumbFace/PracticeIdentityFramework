@@ -2,34 +2,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace DbSeeder
 {
-    public class Startup : IHostedService
+    public class Startup
     {
-        private readonly IServiceCollection _services;
-
-        public Startup(IServiceCollection services)
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration _config)
         {
-            _services = services;
+            var exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var exeDirectory = System.IO.Path.GetDirectoryName(exePath);
+
+            var builder = new ConfigurationBuilder()
+                                     .SetBasePath(exeDirectory)
+                                      .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            Configuration = builder.Build();
+
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            Log.Information("---> Start Seeding!");
-            Log.Information("---> Stop Seeding!");
-        }
+            var connectionString = Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            ConfigureServices(_services);
-            return Task.CompletedTask;
-        }
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
+            services.AddTransient<IDatabaseSeeder, DatabaseSeeder>();
+
+            services.AddDefaultIdentity<IdentityUser>()
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
+
         }
     }
 }
