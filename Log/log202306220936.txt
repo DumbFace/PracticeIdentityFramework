@@ -1,0 +1,4 @@
+2023-06-22 09:36:40.302 +07:00 [INF] -->DB Start Seeding
+2023-06-22 09:36:42.441 +07:00 [INF] Error Seeding Account: System.Collections.Generic.List`1[Microsoft.AspNetCore.Identity.IdentityError]
+2023-06-22 09:36:42.563 +07:00 [INF] Error Seeding Role: System.Collections.Generic.List`1[Microsoft.AspNetCore.Identity.IdentityError]
+2023-06-22 09:36:42.840 +07:00 [INF] -->DB Stop Seeding

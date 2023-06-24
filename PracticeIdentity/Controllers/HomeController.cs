@@ -24,14 +24,12 @@ public class HomeController : Controller
 
 
 
-    [Authorize]
     public IActionResult GetListAdmin()
     {
 
         return Content("Admin");
     }
 
-    [Authorize]
     public IActionResult GetListUser()
     {
         return Content("User");

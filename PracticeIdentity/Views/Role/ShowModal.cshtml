@@ -1,0 +1,13 @@
+@model RoleModel
+
+<form id="registerForm" action="/Role/Create" method="post">
+    <h2>Thêm nhóm quyền</h2>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="@Model.Name" class="form-control" autocomplete="username" aria-required="true" />
+        <label asp-for="@Model.Name">Nhóm Quyền</label>
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Thêm</button>
+</form>

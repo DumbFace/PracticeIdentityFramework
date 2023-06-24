@@ -1,0 +1,49 @@
+@model List<string>
+
+@{
+    var lstPermission = (List<PermissionModel>)ViewBag.lstPermission;
+}
+
+
+<form action="role/UpdatePermission" method="post">
+    <input type="hidden" name="Name" value="@ViewBag.role">
+    <div class="accordion" id="accordionExample">
+        @foreach (PermissionModel permission in lstPermission)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#@permission.GroupPermission" aria-expanded="true" aria-controls="collapseOne">
+                        @permission.GroupPermission
+                    </button>
+                </h2>
+                <div id="@permission.GroupPermission" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#@permission.GroupPermission">
+                    <div class="accordion-body">
+                        <input type="checkbox" class="" id="btncheck1" name="Permissions" value="@permission.View" 
+                        @( Model.Any(s=>s == @permission.View) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck1">Xem</label>
+
+                        <input type="checkbox" class="" id="btncheck2" name="Permissions" value="@permission.Create"
+                          @( Model.Any(s=>s == @permission.Create) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck2">Thêm</label>
+
+                        <input type="checkbox" class="" id="btncheck3" name="Permissions" value="@permission.Edit"
+                          @( Model.Any(s=>s == @permission.Edit) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck3">Sửa</label>
+
+                        <input type="checkbox" class="" id="btncheck4" name="Permissions" value="@permission.Delete"
+                          @( Model.Any(s=>s == @permission.Delete) ? "checked" : "")
+                            autocomplete="off">
+                        <label class="" for="btncheck4">Xóa</label>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <input type="submit" class="btn btn-success" value="Submit">
+</form>

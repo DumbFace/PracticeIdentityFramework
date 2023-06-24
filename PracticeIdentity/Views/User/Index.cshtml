@@ -1,5 +1,3 @@
-@model List<IdentityUser>
-
 <h1>User </h1>
 
 <button class="btn btn-success my-3" onclick="Add(event)">Thêm</button>
@@ -9,37 +7,8 @@
     }
 </style>
 <table id="example" class="table table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.Email</td>
-                <td>
 
-                    <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Actions
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#" onclick="Edit(event)">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Permission</a></li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
 </table>
-
 
 <partial name="_modal" />
 
@@ -51,8 +20,15 @@
             keyboard: false
         })
 
+        function LoadData() {
+            $.get("/User/GetUsers", function (data) {
+                $("#example").html(data);
+                $('#example').DataTable();
+            });
+        }
+
         $(document).ready(function () {
-            $('#example').DataTable();
+            LoadData();
         });
 
         function Add(e) {
@@ -60,19 +36,24 @@
                 $("#loadModal").html(data);
                 $.validator.unobtrusive.parse("#exampleModal");
             });
-
-
             myModal.show();
 
         }
-        function Edit(e) {
-
+        function Edit(e,name) {
+            $.get(`/User/GetModalEdit?name=${name}`, function (data) {
+                $("#loadModal").html(data);
+                @* $.validator.unobtrusive.parse("#exampleModal"); *@
+            });
             myModal.show();
-
         }
 
-        function Delete(e) {
-            alert("Delete")
+        function Delete(e,email) {
+             $.get(`/User/Delete?email=${email}`, function (result) {
+                if (result == 'Ok')
+                {
+                    LoadData();
+                }
+            });
         }
     </script>
 }

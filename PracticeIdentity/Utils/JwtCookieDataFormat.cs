@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace PracticeIdentity.Utils
 {
+    
     public class JwtCookieDataFormat : ISecureDataFormat<AuthenticationTicket>
     {
         private readonly string algorithm;

@@ -1,0 +1,224 @@
+2023-06-22 23:11:17.973 +07:00 [INF] User profile is available. Using 'C:\Users\khang\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-22 23:11:18.260 +07:00 [INF] --> Seeding DB
+2023-06-22 23:11:32.044 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__DefaultUser_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE [a].[UserName] = @__DefaultUser_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-06-22 23:11:32.084 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]
+        WHERE [a].[Name] = N'SuperAdmin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-06-22 23:11:32.132 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[Name] = N'SuperAdmin'
+2023-06-22 23:11:32.234 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2023-06-22 23:11:32.266 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.302 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.415 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.459 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.466 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.473 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.480 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.485 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.491 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.497 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.503 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.508 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.514 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.530 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.535 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.540 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.545 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.550 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.556 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.561 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.566 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.577 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.582 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.587 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.593 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.598 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.602 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.608 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.613 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.618 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.624 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.629 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.634 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.639 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[RoleId]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2023-06-22 23:11:32.644 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2023-06-22 23:11:32.650 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p4='?' (Size = 450), @p1='?' (Size = 4000), @p5='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetRoleClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetRoles] SET [ConcurrencyStamp] = @p1, [Name] = @p2, [NormalizedName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2023-06-22 23:11:32.655 +07:00 [INF] All Claims Removed
+2023-06-22 23:11:32.657 +07:00 [INF] Application is shutting down...
+2023-06-22 23:11:32.659 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-22 23:11:32.660 +07:00 [INF] Hosting environment: Production
+2023-06-22 23:11:32.662 +07:00 [INF] Content root path: F:\Repo\PracticeIdentityFramework\DbSeeder\bin\Debug\net7.0\
+2023-06-22 23:11:32.665 +07:00 [INF] --> Stop Seeding DB

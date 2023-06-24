@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {}
+    "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {}
   },
   "projects": {
-    "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
+    "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+        "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
         "projectName": "PracticeIdentity",
-        "projectPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
-        "packagesPath": "C:\\Users\\Khang\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\PracticeIdentity\\obj\\",
+        "projectPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\PracticeIdentity.csproj",
+        "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
+        "outputPath": "F:\\Repo\\PracticeIdentityFramework\\PracticeIdentity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,6 +41,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[7.0.5, )"
@@ -51,11 +59,11 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[7.0.7, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[7.0.7, )"
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
@@ -63,17 +71,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[7.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[7.0.7, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.6, )"
+              "version": "[7.0.7, )"
             },
             "datatables.net": {
               "target": "Package",
