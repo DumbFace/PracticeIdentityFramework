@@ -1,1 +1,8 @@
- 
+DbSeeder/bin
+DbSeeder/obj
+PracticeIdentity/bin
+PracticeIdentity/obj
+XUnitTest/bin
+XUnitTest/obj
+Domain/bin
+Domain/obj

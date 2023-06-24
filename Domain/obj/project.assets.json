@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\khang\\.nuget\\packages\\": {}
+    "C:\\Users\\Khang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\Domain\\Domain.csproj",
+      "projectUniqueName": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "F:\\Repo\\PracticeIdentityFramework\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-      "outputPath": "F:\\Repo\\PracticeIdentityFramework\\Domain\\obj\\",
+      "projectPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\Khang\\.nuget\\packages\\",
+      "outputPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -4840,19 +4840,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\khang\\.nuget\\packages\\": {}
+    "C:\\Users\\Khang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
+      "projectUniqueName": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
       "projectName": "DbSeeder",
-      "projectPath": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
-      "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-      "outputPath": "F:\\Repo\\PracticeIdentityFramework\\DbSeeder\\obj\\",
+      "projectPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\DbSeeder\\DbSeeder.csproj",
+      "packagesPath": "C:\\Users\\Khang\\.nuget\\packages\\",
+      "outputPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\DbSeeder\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4866,8 +4866,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "F:\\Repo\\PracticeIdentityFramework\\Domain\\Domain.csproj": {
-              "projectPath": "F:\\Repo\\PracticeIdentityFramework\\Domain\\Domain.csproj"
+            "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\WorkSpace\\repo\\Github\\PracticeIdentityFramework\\Domain\\Domain.csproj"
             }
           }
         }
